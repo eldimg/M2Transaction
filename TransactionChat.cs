@@ -53,7 +53,9 @@ namespace web.Logic
         { 
             return String.Format("private-chat-with{0}", user_id); 
         }
-
+        /// <summary>
+        /// Запрос на контракт
+        /// </summary>
         internal Models.RequestResult Book(bookModel2 bm, int senderid)
         {
             int idBook = bdb.addBooking(bm, senderid);
@@ -249,6 +251,9 @@ namespace web.Logic
                     ResultMessage = "16102020035:ошибка записи сообщения в базу"
                 };
         }
+        /// <summary>
+        /// Ответ на контракт
+        /// </summary>
         internal Models.RequestResult Response(response resp, int senderId)
         {
             int idStatus = 0;
@@ -290,7 +295,10 @@ namespace web.Logic
         {
             return (new BookingMessageDB()).getChats(asOwner, userId);
         }
-
+        /// <summary>
+        /// Получение чата с пользователем по определеннной недвижимости, со статусами контрактов
+        /// </summary> 
+        /// <returns>Chat</returns
         internal Chat GetConversation(int contact, int refRealty, int myid)
         {
             return (new BookingMessageDB()).GetConversation(contact, refRealty, myid);
